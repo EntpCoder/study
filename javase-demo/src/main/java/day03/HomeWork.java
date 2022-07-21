@@ -47,7 +47,6 @@ public class HomeWork {
                     arr[index5] * 5);
             arr[i] = min;
             if(min == arr[index2] * 2) {index2++;}
-
             if(min == arr[index3] * 3) {index3++;}
             if(min == arr[index5] * 5) {index5++;}
         }
