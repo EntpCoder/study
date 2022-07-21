@@ -1,5 +1,9 @@
 package day03;
 
+/**
+ * @author Yang Song
+ * @date 2022/7/21 11:30
+ */
 public class HomeWork {
     public static void main(String[] args) {
         System.out.println(getNum(1370));
@@ -21,8 +25,9 @@ public class HomeWork {
                 tempSum += temp;
                 temp /= 10;
             }
-            if (tempSum == sum)
+            if (tempSum == sum){
                 return i;
+            }
         }
         return -1;
     }
@@ -41,9 +46,10 @@ public class HomeWork {
             int min = Math.min(Math.min( arr[index2] * 2 , arr[index3] * 3),
                     arr[index5] * 5);
             arr[i] = min;
-            if(min == arr[index2] * 2) index2++;
-            if(min == arr[index3] * 3) index3++;
-            if(min == arr[index5] * 5) index5++;
+            if(min == arr[index2] * 2) {index2++;}
+
+            if(min == arr[index3] * 3) {index3++;}
+            if(min == arr[index5] * 5) {index5++;}
         }
         return arr[n - 1];
     }
