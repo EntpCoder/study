@@ -1,7 +1,5 @@
 package day10;
 
-import java.io.InputStream;
-import java.util.HashMap;
 
 /**
  * @author Yang Song
