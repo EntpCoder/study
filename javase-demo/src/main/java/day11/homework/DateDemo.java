@@ -1,8 +1,9 @@
 package day11.homework;
 
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 /**
  * @author Yang Song
@@ -21,5 +22,13 @@ public class DateDemo {
         System.out.println("字符串转日期:"+parse);
         long betweenDay = ChronoUnit.DAYS.between(beforeThreeDay, now);
         System.out.println("两天相差的天数为:"+betweenDay);
+        System.out.println(Clock.systemUTC());
+        System.out.println(now.getDayOfYear());
+        System.out.println("================");
+        LocalDate start = LocalDate.of(2020,8,25);
+        LocalDate end = LocalDate.of(2022,8,2);
+        Period period = Period.between(start,end);
+        System.out.println("两个时间之间的差值年:"+period.getYears()+",月:"+period.getMonths()+",日:"+period.getDays());
+        System.out.println("===========");
     }
 }
