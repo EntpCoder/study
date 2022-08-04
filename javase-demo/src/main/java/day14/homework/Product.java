@@ -1,5 +1,4 @@
 package day14.homework;
-
 /**
  * @author Yang Song
  * @date 2022/8/4 18:30
@@ -8,7 +7,6 @@ public class Product {
     private String brand;
     private String name;
     private double cost;
-
     public Product() {
     }
     public Product(String brand, String name, double cost) {
@@ -38,6 +36,4 @@ public class Product {
     public String toString() {
         return "Product [brand=" + brand + ", name=" + name + ", cost=" + cost + "]";
     }
-
-
 }

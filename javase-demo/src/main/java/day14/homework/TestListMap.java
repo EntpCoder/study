@@ -8,23 +8,22 @@ import java.util.stream.Collectors;
  */
 public class TestListMap {
     public static void main(String[] args) {
-        Product product1 = new Product("小米","小米手机11",5000);
-        Product product2 = new Product("华为","华为手机P30",6000);
-        Product product3 = new Product("苹果","苹果手机X",8000);
-        Product product4 = new Product("小米","小米手机11Ultra",6666);
-        Product product5 = new Product("小米","小米手机12",6000);
-        Product product6 = new Product("苹果","苹果手11MaxPro",12000);
-        Product product7 = new Product("华为","华为手机P40",9200);
+        Product p1 = new Product("宝洁","洗手粉",18.5);
+        Product p2 = new Product("联合利华","肥皂",4.5);
+        Product p3 = new Product("宝洁","牙膏",32.5);
+        Product p4 = new Product("宝洁","毛巾",14.5);
+        Product p5 = new Product("洁利","洗面奶",26.0);
+        Product p6 = new Product("好迪","洗发水",27.5);
+        Product p7 = new Product("多芬","沐浴露",38.5);
+        Product p8 = new Product("宝洁","洗洁精",3.4);
         List<Product> list = new ArrayList<>();
-        list.add(product1);
-        list.add(product2);
-        list.add(product3);
-        list.add(product4);
-        list.add(product5);
-        list.add(product6);
-        list.add(product7);
-        list.stream()
+        Collections.addAll(list,p1,p2,p3,p4,p5,p6,p7,p8);
+        List<Map.Entry<String, Double>> collect = list.stream()
                 .collect(Collectors.groupingBy(Product::getBrand, Collectors.summingDouble(Product::getCost)))
-                .forEach((k,v)-> System.out.println(k+"-"+v+"元"));
+                .entrySet()
+                .stream()
+                .sorted((o1, o2) -> o1.getValue() > o2.getValue() ? -1 : 1)
+                .collect(Collectors.toList());
+        collect.forEach(System.out::println);
     }
 }
