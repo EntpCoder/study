@@ -76,7 +76,9 @@ public class LRUCache {
     private void moveToHead(Node newFirst) {
         Node oldFirst = head.next;
         // 如果newFirst是链表的第一个节点，则不需要再移动
-        if (newFirst == oldFirst)  return;
+        if (newFirst == oldFirst)  {
+            return;
+        }
         // 如果newFirst是链表中原有的节点，需要将其前驱的后继指向newFirst的后继 ，并将newFirst的后继的前驱指向newFirst的前驱
         if(newFirst.next != null) {
             newFirst.next.pre = newFirst.pre;
