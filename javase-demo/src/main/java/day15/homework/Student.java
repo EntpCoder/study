@@ -21,7 +21,7 @@ public class Student {
     @ExcelProperty("专业")
     private String stuMajor;
     @ExcelProperty(value = "生日",converter = ExcelConverter.class)
-    private String stuBirthday;
+    private LocalDate stuBirthday;
 
     public int getStuNo() {
         return stuNo;
@@ -55,11 +55,11 @@ public class Student {
         this.stuMajor = stuMajor;
     }
 
-    public String getStuBirthday() {
+    public LocalDate getStuBirthday() {
         return stuBirthday;
     }
 
-    public void setStuBirthday(String stuBirthday) {
+    public void setStuBirthday(LocalDate stuBirthday) {
         this.stuBirthday = stuBirthday;
     }
 
