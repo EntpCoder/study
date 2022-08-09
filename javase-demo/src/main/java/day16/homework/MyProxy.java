@@ -19,8 +19,8 @@ public class MyProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        proxy = this.target;
-        Object result = method.invoke(proxy, args);
+        //proxy = this.target;
+        Object result = method.invoke(target, args);
         if("save".equals(method.getName())|| "update".equals(method.getName()) || "delete".equals(method.getName())){
             new LogUtil().addLog();
         }

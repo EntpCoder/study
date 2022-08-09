@@ -6,6 +6,7 @@ package day16.homework;
  */
 public class Product {
     private int proId;
+
     public int getProId() {
         return proId;
     }
