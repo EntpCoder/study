@@ -8,7 +8,7 @@ public class Restaurant {
     private int dish;
 
     public synchronized void put() {
-        while (dish >= 1000) {
+        if (dish >= 10) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -19,14 +19,14 @@ public class Restaurant {
         System.out.println("商家生产了一份:剩余盒饭>>>" + dish);
         this.notifyAll();
         try {
-            Thread.sleep(10);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public synchronized void get() {
-        while (dish < 500) {
+        if (dish == 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -37,7 +37,7 @@ public class Restaurant {
         System.out.println("客人拿了一份:剩余盒饭>>>" + dish);
         this.notifyAll();
         try {
-            Thread.sleep(10);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
