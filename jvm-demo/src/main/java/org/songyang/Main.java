@@ -1,5 +1,6 @@
 package org.songyang;
 
+
 /**
  * Hello world!
  *
@@ -7,6 +8,5 @@ package org.songyang;
 public class Main 
 {
     public static void main( String[] args ) {
-
     }
 }
