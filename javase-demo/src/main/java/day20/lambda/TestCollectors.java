@@ -8,6 +8,5 @@ import java.util.ArrayList;
  */
 public class TestCollectors {
     public static void main(String[] args) {
-
     }
 }
