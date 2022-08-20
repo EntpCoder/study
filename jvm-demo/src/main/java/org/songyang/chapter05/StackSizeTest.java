@@ -8,9 +8,6 @@ public class StackSizeTest {
     private static int i = 1;
 
     public static void main(String[] args) {
-        long j1 = 10;
-        long j2 = 10;
-        long j3 = 10;
         System.out.println(i);
         i++;
         main(args);
