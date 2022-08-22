@@ -27,10 +27,10 @@ public class ClassLoaderTest2 {
         String property = System.getProperty("java.ext.dirs");
         // C:\Program Files\Java\jdk1.8.0_77\jre\lib\ext
         // C:\WINDOWS\Sun\Java\lib\ext
-        for (String p :
-                property.split(";")) {
-            System.out.println(p);
-        }
+//        for (String p :
+//                property.split(";")) {
+//            System.out.println(p);
+//        }
         // 从上面路径随便选一个类 来看看他的类加载器是什么
         ClassLoader curveDBClassLoader = CurveDB.class.getClassLoader();
         System.out.println(curveDBClassLoader);
