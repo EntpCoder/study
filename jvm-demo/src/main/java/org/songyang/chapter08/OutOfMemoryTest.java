@@ -10,7 +10,6 @@ import java.util.Random;
  */
 public class OutOfMemoryTest {
     public static void main(String[] args) {
-        int i = 0;
         List<Picture> list = new ArrayList<>();
         while (true){
             try {
@@ -18,7 +17,6 @@ public class OutOfMemoryTest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("添加次数"+i++);
             list.add(new Picture(new Random().nextInt(1024*1024)));
         }
     }
