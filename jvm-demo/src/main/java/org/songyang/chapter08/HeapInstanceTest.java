@@ -6,24 +6,20 @@ import java.util.Random;
 
 /**
  * @author Yang Song
- * @date 2022/8/25 16:37
+ * @date 2022/8/31 11:22
  */
-public class OutOfMemoryTest {
+public class HeapInstanceTest {
+    byte[] buffer = new byte[new Random().nextInt(1024*200)];
+
     public static void main(String[] args) {
-        List<Picture> list = new ArrayList<>();
+        List<HeapInstanceTest> list = new ArrayList<>();
         while (true){
+            list.add(new HeapInstanceTest());
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            list.add(new Picture(new Random().nextInt(1024*1024)));
         }
-    }
-}
-class Picture{
-    private byte[] pixels;
-    public Picture(int length){
-        this.pixels = new byte[length];
     }
 }
