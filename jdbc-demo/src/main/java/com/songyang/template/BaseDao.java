@@ -7,6 +7,7 @@ package com.songyang.template;
 public class BaseDao<T> implements IBaseDao<T>{
     @Override
     public int insert(T entity) {
+        Class<?> aClass = entity.getClass();
         return 0;
     }
 }
