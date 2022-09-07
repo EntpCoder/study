@@ -1,7 +1,7 @@
 package com.songyang.dao;
 
 
-import com.songyang.pojo.Emp;
+import com.songyang.entity.Emp;
 
 /**
  * @author Yang Song

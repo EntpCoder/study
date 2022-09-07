@@ -2,7 +2,7 @@ package com.songyang.dao.impl;
 
 import com.songyang.dao.EmpDao;
 import com.songyang.dao.impl.convert.EmpConvert;
-import com.songyang.pojo.Emp;
+import com.songyang.entity.Emp;
 import com.songyang.util.JdbcUtil;
 import java.util.List;
 

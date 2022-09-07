@@ -1,7 +1,6 @@
 package com.songyang.util;
 
 import com.songyang.dao.impl.Convert;
-import com.songyang.pojo.Emp;
 
 import java.io.IOException;
 import java.io.InputStream;

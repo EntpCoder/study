@@ -1,7 +1,7 @@
 package com.songyang.dao.impl.convert;
 
 import com.songyang.dao.impl.Convert;
-import com.songyang.pojo.Emp;
+import com.songyang.entity.Emp;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
