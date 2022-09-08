@@ -14,13 +14,17 @@ import java.io.InputStream;
 public class MybatisUtil {
     private static SqlSessionFactory sqlSessionFactory;
     static {
+        // 加载mybatis配置文件
         try (InputStream ips = Resources.getResourceAsStream("config/mybatis-config.xml")) {
+            // 根据配置文件创建sqlSessionFactory
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(ips);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
     public static SqlSession getSqlSession(){
+
+        // 获取sqlSessionFactory
         return sqlSessionFactory.openSession();
     }
 }

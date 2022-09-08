@@ -26,6 +26,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/EmpMapper.xml"/>
+        <package name="com.songyang.mapper"/>
     </mappers>
 </configuration>
