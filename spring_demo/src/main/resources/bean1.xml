@@ -9,8 +9,8 @@
         <property name="bookName" value="JVM"/>
     </bean>
     <!-- constructor注入 -->
-    <bean id="orders" class="com.songyang.spring5.Orders">
+    <bean id="orders" class="com.songyang.spring5.Orders" scope="">
         <constructor-arg name="orderName" value="iphone"/>
         <constructor-arg name="orderPrice" value="1000"/>
-    </bean>
+    </bean>57
 </beans>

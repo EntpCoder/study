@@ -14,4 +14,11 @@ public class Book {
     public String getBookName() {
         return bookName;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookName='" + bookName + '\'' +
+                '}';
+    }
 }
