@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="orders" class="com.songyang.spring5.bean.Orders" p:orderName="宋" init-method="initMethod" destroy-method="destroy"/>
+    <bean id="orders" class="com.songyang.spring5.xml.bean.Orders" p:orderName="宋" init-method="initMethod" destroy-method="destroy"/>
     <!-- 配置后置处理器  -->
-    <bean id="myBean" class="com.songyang.spring5.bean.MyBeanPostProcessor"/>
+    <bean id="myBean" class="com.songyang.spring5.xml.bean.MyBeanPostProcessor"/>
 </beans>

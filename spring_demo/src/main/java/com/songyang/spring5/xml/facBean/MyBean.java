@@ -1,6 +1,6 @@
-package com.songyang.spring5.facBean;
+package com.songyang.spring5.xml.facBean;
 
-import com.songyang.spring5.Book;
+import com.songyang.spring5.xml.Book;
 import org.springframework.beans.factory.FactoryBean;
 
 /**

@@ -1,4 +1,4 @@
-package com.songyang.spring5.bean;
+package com.songyang.spring5.xml.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

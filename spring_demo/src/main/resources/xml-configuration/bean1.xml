@@ -3,13 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="user" class="com.songyang.spring5.User"/>
+    <bean id="user" class="com.songyang.spring5.xml.User"/>
     <!--  setter注入  -->
-    <bean id="book" class="com.songyang.spring5.Book">
+    <bean id="book" class="com.songyang.spring5.xml.Book">
         <property name="bookName" value="JVM"/>
     </bean>
     <!-- constructor注入 -->
-    <bean id="orders" class="com.songyang.spring5.Orders" scope="">
+    <bean id="orders" class="com.songyang.spring5.xml.Orders" scope="">
         <constructor-arg name="orderName" value="iphone"/>
         <constructor-arg name="orderPrice" value="1000"/>
     </bean>57

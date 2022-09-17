@@ -1,21 +1,24 @@
 package com.songyang;
 
 
-import com.songyang.spring5.Book;
-import com.songyang.spring5.Orders;
-import com.songyang.spring5.User;
-import com.songyang.spring5.facBean.MyBean;
+import com.alibaba.druid.pool.DruidDataSource;
+import com.songyang.spring5.xml.Book;
+import com.songyang.spring5.xml.Orders;
+import com.songyang.spring5.xml.User;
+import com.songyang.spring5.xml.autowire.Emp;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.SQLException;
+
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class SpringXmlTest
 {
     // 1.加载配置文件
-    ApplicationContext context = new ClassPathXmlApplicationContext("bean3.xml");
+    ApplicationContext context = new ClassPathXmlApplicationContext("xml-configuration/bean6.xml");
     @Test
     public void spring5(){
         System.out.println(context);
@@ -44,8 +47,19 @@ public class AppTest
     }
     @Test
     public void lifeCycle(){
-        com.songyang.spring5.bean.Orders orders = context.getBean("orders", com.songyang.spring5.bean.Orders.class);
+        com.songyang.spring5.xml.bean.Orders orders = context.getBean("orders", com.songyang.spring5.xml.bean.Orders.class);
         System.out.println("4.获取对象");
         ((ClassPathXmlApplicationContext)context).close();
     }
+    @Test
+    public void autoWire(){
+        Emp emp = context.getBean("emp", Emp.class);
+        emp.test();
+    }
+    @Test
+    public void testProperties() throws SQLException {
+        DruidDataSource bean = context.getBean(DruidDataSource.class);
+        System.out.println(bean.getConnection());
+    }
+
 }

@@ -1,6 +1,4 @@
-package com.songyang.spring5.bean;
-
-import org.aspectj.weaver.ast.Or;
+package com.songyang.spring5.xml.bean;
 
 /**
  * @author Yang Song

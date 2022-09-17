@@ -1,4 +1,4 @@
-package com.songyang.spring5;
+package com.songyang.spring5.xml;
 
 /**
  * @author Yang Song
