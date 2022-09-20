@@ -1,6 +1,6 @@
-package com.songyang.spring5.tx.service;
+package com.songyang.spring5.annotationtx.config.service;
 
-import com.songyang.spring5.tx.dao.AccountDao;
+import com.songyang.spring5.annotationtx.config.dao.AccountDao;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
