@@ -2,6 +2,7 @@ package com.songyang.spring5.annotation.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @author Yang Song
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.songyang.spring5"})
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class SpringConfig {
 
 }

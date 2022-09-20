@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="user" class="com.songyang.spring5.aop.xml.User"/>
+    <bean id="userProxy" class="com.songyang.spring5.aop.xml.UserProxy"/>
+    <!-- 配置增强 -->
+    <aop:config>
+        <!-- 切入点 -->
+        <aop:pointcut id="bef" expression="execution(* com.songyang.spring5.aop.xml.User.add(..))"/>
+        <!-- 切面 -->
+        <aop:aspect ref="userProxy">
+            <!-- 增强作用在具体方法上 method="增强方法" pointcut-ref="切入点" -->
+            <aop:before method="before" pointcut-ref="bef"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
