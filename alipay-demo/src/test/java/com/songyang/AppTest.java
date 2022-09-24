@@ -66,14 +66,14 @@ public class AppTest
         String[] v1 = {"2022-09-23 19:23:50"};
         String[] v2 = {"牛奶   *2"};
         String[] v3 = {"UTF-8"};
+        String[] v4 = {"[{\"amount\":\"30.00\",\"fundChannel\":\"ALIPAYACCOUNT\"}]"};
         map.put("gmt_create",v1);
         map.put("subject",v2);
         map.put("charset",v3);
+        map.put("fund_bill_list",v4);
         Map<String, String> collect = map.entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey,
-                        (v) -> Arrays.toString(v.getValue()).replaceAll("[\\[\\]]","")));
-
-
+                        (entry) -> String.join(",", entry.getValue())));
         collect.forEach((k,v)->{
             System.out.println(k+":"+v);
         });

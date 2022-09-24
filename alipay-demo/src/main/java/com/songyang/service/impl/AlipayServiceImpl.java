@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Yang Song
@@ -111,18 +112,13 @@ public class AlipayServiceImpl implements IAlipayService {
         return payResultVo;
     }
     public boolean isSign(Map<String, String[]> requestParams) {
-        boolean signVerified = false;
-        Map<String, String> params = new HashMap<>(16);
+        // 将Map<String, String[]> 转为 Map<String, String> 多个数据用","进行拼接
+        Map<String, String> params = requestParams.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey,
+                        (entry) -> String.join(",", entry.getValue())));
+        boolean  signVerified = false;
         try {
-            for (String name : requestParams.keySet()) {
-                String[] values = requestParams.get(name);
-                String valueStr = "";
-                for (int i = 0; i < values.length; i++) {
-                    valueStr = (i == values.length - 1) ? valueStr + values[i]
-                            : valueStr + values[i] + ",";
-                }
-                params.put(name, valueStr);
-            }
+            // 使用支付宝SDK验签
             signVerified = AlipaySignature.verifyV1(params, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.CHARSET, AlipayConfig.SIGN_TYPE);
         } catch (AlipayApiException e) {
             e.printStackTrace();
