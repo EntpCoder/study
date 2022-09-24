@@ -43,7 +43,6 @@ public class AlipayServiceImpl implements IAlipayService {
         Orders orders = ordersMapper.selectById(orderId);
         String paidAmount = orders.getPaidAmount().toString();
         String orderSubject = orders.getOrderSubject();
-        String orderNum = orders.getOrderNum();
         // 发起支付请求
         DefaultAlipayClient client = new DefaultAlipayClient(AlipayConfig.URL,
                 AlipayConfig.APPID, AlipayConfig.RSA_PRIVATE_KEY, AlipayConfig.FORMAT,
