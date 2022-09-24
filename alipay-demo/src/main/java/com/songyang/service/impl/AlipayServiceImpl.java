@@ -51,10 +51,11 @@ public class AlipayServiceImpl implements IAlipayService {
         request.setReturnUrl(AlipayConfig.return_url);
         request.setNotifyUrl(AlipayConfig.notify_url);
         JSONObject bizContent = new JSONObject();
+        // 必选四项参数 --其他参数参考官方文档
         bizContent.put("out_trade_no",orderId);
-        bizContent.put("product_code","FAST_INSTANT_TRADE_PAY");
         bizContent.put("total_amount",paidAmount);
         bizContent.put("subject",orderSubject);
+        bizContent.put("product_code","FAST_INSTANT_TRADE_PAY");
         request.setBizContent(bizContent.toString());
         String form = "";
         try {
