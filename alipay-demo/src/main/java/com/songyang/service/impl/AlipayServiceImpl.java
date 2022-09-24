@@ -36,7 +36,6 @@ public class AlipayServiceImpl implements IAlipayService {
         this.ordersMapper = ordersMapper;
         this.flowMapper = flowMapper;
     }
-
     @Override
     public String goAliPay(String orderId) {
         // 获取订单信息
@@ -48,8 +47,8 @@ public class AlipayServiceImpl implements IAlipayService {
                 AlipayConfig.APPID, AlipayConfig.RSA_PRIVATE_KEY, AlipayConfig.FORMAT,
                 AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.SIGN_TYPE);
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
-        request.setReturnUrl(AlipayConfig.return_url);
-        request.setNotifyUrl(AlipayConfig.notify_url);
+        request.setReturnUrl(AlipayConfig.RETURN_URL);
+        request.setNotifyUrl(AlipayConfig.NOTIFY_URL);
         JSONObject bizContent = new JSONObject();
         // 必选四项参数 --其他参数参考官方文档
         bizContent.put("out_trade_no",orderId);
