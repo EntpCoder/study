@@ -1,17 +1,11 @@
 package com.songyang.controller;
 
-import com.alipay.api.internal.util.AlipaySignature;
+import com.songyang.common.R;
 import com.songyang.entity.vo.AlipayVo;
 import com.songyang.service.IAlipayService;
-import com.songyang.service.IOrdersService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author Yang Song
@@ -24,19 +18,36 @@ public class AlipayController {
     public AlipayController(IAlipayService iAlipayService){
         this.alipayService = iAlipayService;
     }
+
+    /**
+     * 根据订单id 拉起支付页面
+     * @param orderId 订单id
+     * @return 支付页面
+     */
     @GetMapping("/goAliPay/{orderId}")
     public String goPay(@PathVariable("orderId") String orderId){
         return alipayService.goAliPay(orderId);
     }
-    @PostMapping("/aliNotify")
-    public void callBack1(AlipayVo alipayVo, HttpServletRequest request){
-        System.out.println("阿里异步回调  修改订单状态");
-        alipayService.callBack(alipayVo,request.getParameterMap());
-    }
-    @GetMapping("/aliReturn")
-    public String callBack2(AlipayVo alipayVo,Map<String,String[]> params){
 
-        System.out.println("阿里同步回调,跳转页面");
-        return "同步请求回调 跳转页面";
+    /**
+     * 交易成功支付宝异步回调
+     * @param alipayVo 支付宝异步回调参数(用于生成流水，修改订单状态)
+     * @param request 支付宝回调信息请求体(用于验签)
+     */
+    @PostMapping("/aliNotify")
+    public String callBack1(AlipayVo alipayVo, HttpServletRequest request){
+        alipayService.callBackAsync(alipayVo,request.getParameterMap());
+        // 返回给支付宝
+        return "success";
+    }
+
+    /**
+     * 用户付款成功支付宝同步回调
+     * @param alipayVo 支付宝同步回调参数
+     * @return 用户支付信息(订单号,流水号,支付金额)
+     */
+    @GetMapping("/aliReturn")
+    public R callBack2(AlipayVo alipayVo){
+        return R.ok().data("payInfo",alipayService.callBackSync(alipayVo));
     }
 }

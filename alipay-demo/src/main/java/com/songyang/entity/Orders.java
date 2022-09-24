@@ -1,5 +1,10 @@
 package com.songyang.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,6 +17,10 @@ import java.time.LocalDateTime;
  * @author Yang Song
  * @since 2022-09-23
  */
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,109 +76,4 @@ public class Orders implements Serializable {
      * 用户id
      */
     private String userId;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(String orderNum) {
-        this.orderNum = orderNum;
-    }
-
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public BigDecimal getOrderAmount() {
-        return orderAmount;
-    }
-
-    public void setOrderAmount(BigDecimal orderAmount) {
-        this.orderAmount = orderAmount;
-    }
-
-    public BigDecimal getPaidAmount() {
-        return paidAmount;
-    }
-
-    public void setPaidAmount(BigDecimal paidAmount) {
-        this.paidAmount = paidAmount;
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getOrderSubject() {
-        return orderSubject;
-    }
-
-    public void setOrderSubject(String orderSubject) {
-        this.orderSubject = orderSubject;
-    }
-
-    public Integer getBuyCounts() {
-        return buyCounts;
-    }
-
-    public void setBuyCounts(Integer buyCounts) {
-        this.buyCounts = buyCounts;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getPaidTime() {
-        return paidTime;
-    }
-
-    public void setPaidTime(LocalDateTime paidTime) {
-        this.paidTime = paidTime;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{" +
-            "id = " + id +
-            ", orderNum = " + orderNum +
-            ", orderStatus = " + orderStatus +
-            ", orderAmount = " + orderAmount +
-            ", paidAmount = " + paidAmount +
-            ", productId = " + productId +
-            ", orderSubject = " + orderSubject +
-            ", buyCounts = " + buyCounts +
-            ", createTime = " + createTime +
-            ", paidTime = " + paidTime +
-            ", userId = " + userId +
-        "}";
-    }
 }

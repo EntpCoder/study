@@ -1,5 +1,10 @@
 package com.songyang.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,6 +17,10 @@ import java.time.LocalDateTime;
  * @author Yang Song
  * @since 2022-09-23
  */
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Flow implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,82 +61,4 @@ public class Flow implements Serializable {
      * 创建时间
      */
     private LocalDateTime createTime;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFlowNum() {
-        return flowNum;
-    }
-
-    public void setFlowNum(String flowNum) {
-        this.flowNum = flowNum;
-    }
-
-    public String getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(String orderNum) {
-        this.orderNum = orderNum;
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public BigDecimal getPaidAmount() {
-        return paidAmount;
-    }
-
-    public void setPaidAmount(BigDecimal paidAmount) {
-        this.paidAmount = paidAmount;
-    }
-
-    public Integer getPaidMethod() {
-        return paidMethod;
-    }
-
-    public void setPaidMethod(Integer paidMethod) {
-        this.paidMethod = paidMethod;
-    }
-
-    public Integer getBuyCounts() {
-        return buyCounts;
-    }
-
-    public void setBuyCounts(Integer buyCounts) {
-        this.buyCounts = buyCounts;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Flow{" +
-            "id = " + id +
-            ", flowNum = " + flowNum +
-            ", orderNum = " + orderNum +
-            ", productId = " + productId +
-            ", paidAmount = " + paidAmount +
-            ", paidMethod = " + paidMethod +
-            ", buyCounts = " + buyCounts +
-            ", createTime = " + createTime +
-        "}";
-    }
 }

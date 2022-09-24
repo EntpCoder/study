@@ -1,9 +1,7 @@
 package com.songyang.service.impl;
 
-import com.songyang.entity.Flow;
 import com.songyang.entity.Orders;
 import com.songyang.entity.Product;
-import com.songyang.mapper.FlowMapper;
 import com.songyang.mapper.OrdersMapper;
 import com.songyang.mapper.ProductMapper;
 import com.songyang.service.IOrdersService;

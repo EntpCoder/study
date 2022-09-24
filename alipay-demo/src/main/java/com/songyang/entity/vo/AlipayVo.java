@@ -1,9 +1,19 @@
 package com.songyang.entity.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
+ * 接收支付宝回调实体类
  * @author Yang Song
  * @date 2022/9/23 15:31
  */
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class AlipayVo {
     /**
      * 支付宝交易号
@@ -19,75 +29,19 @@ public class AlipayVo {
      */
     private String seller_id;
     /**
-     * total_amount
+     * 订单金额
      */
     private String total_amount;
     /**
-     * 商户原始订单号
+     * 原始订单号(orderNum)非orderId
      */
     private String merchant_order_no;
+    /**
+     * 支付宝回传自定义参数
+     */
+    private String passback_params;
     /**
      * 签名
      */
     private String sign;
-
-    public String getTrade_no() {
-        return trade_no;
-    }
-
-    public void setTrade_no(String trade_no) {
-        this.trade_no = trade_no;
-    }
-
-    public String getOut_trade_no() {
-        return out_trade_no;
-    }
-
-    public void setOut_trade_no(String out_trade_no) {
-        this.out_trade_no = out_trade_no;
-    }
-
-    public String getSeller_id() {
-        return seller_id;
-    }
-
-    public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id;
-    }
-
-    public String getTotal_amount() {
-        return total_amount;
-    }
-
-    public void setTotal_amount(String total_amount) {
-        this.total_amount = total_amount;
-    }
-
-    public String getMerchant_order_no() {
-        return merchant_order_no;
-    }
-
-    public void setMerchant_order_no(String merchant_order_no) {
-        this.merchant_order_no = merchant_order_no;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
-    }
-
-    @Override
-    public String toString() {
-        return "AlipayVo{" +
-                "trade_no='" + trade_no + '\'' +
-                ", out_trade_no='" + out_trade_no + '\'' +
-                ", seller_id='" + seller_id + '\'' +
-                ", total_amount='" + total_amount + '\'' +
-                ", merchant_order_no='" + merchant_order_no + '\'' +
-                ", sign='" + sign + '\'' +
-                '}';
-    }
 }
