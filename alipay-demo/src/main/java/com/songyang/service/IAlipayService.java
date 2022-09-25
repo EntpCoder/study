@@ -11,8 +11,8 @@ import java.util.Map;
  */
 public interface IAlipayService {
     /**
-     *  亚眠
-     * @param orderId 的
+     *  拉起页面
+     * @param orderId 待支付订单id
      * @return 页面
      */
     public String goAliPay(String orderId);
