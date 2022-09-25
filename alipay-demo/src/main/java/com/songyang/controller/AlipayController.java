@@ -36,9 +36,8 @@ public class AlipayController {
      */
     @PostMapping("/aliNotify")
     public String callBack1(AlipayVo alipayVo, HttpServletRequest request){
-        alipayService.callBackAsync(alipayVo,request.getParameterMap());
-        // 返回给支付宝
-        return "success";
+        // 反馈给支付宝是否成功信息
+        return alipayService.callBackAsync(alipayVo,request.getParameterMap());
     }
 
     /**

@@ -21,8 +21,9 @@ public interface IAlipayService {
      * 交易成功 异步回调
      * @param alipayVo 回调参数
      * @param params 验签参数
+     * @return 返回给支付宝是否成功(success/failure)
      */
-    public void callBackAsync(AlipayVo alipayVo, Map<String,String[]> params);
+    public String callBackAsync(AlipayVo alipayVo, Map<String,String[]> params);
 
     /**
      * 用户付款成功 同步回调
