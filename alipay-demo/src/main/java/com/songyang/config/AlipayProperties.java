@@ -4,7 +4,7 @@ package com.songyang.config;
  * @author Yang Song
  * @date 2022/9/23 11:08
  */
-public class AlipayConfig {
+public class AlipayProperties {
     /**
      * 商户appid
      */
@@ -22,7 +22,7 @@ public class AlipayConfig {
      */
     public static final String RETURN_URL = "http://localhost:8080/aliReturn";
     /**
-     * 请求网关地址
+     * 沙盒请求网关地址
      */
     public static final String URL = "https://openapi.alipaydev.com/gateway.do";
     /**

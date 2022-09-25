@@ -6,7 +6,7 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.songyang.config.AlipayConfig;
+import com.songyang.config.AlipayProperties;
 import com.songyang.entity.Flow;
 import com.songyang.entity.Orders;
 import com.songyang.entity.vo.AlipayVo;
@@ -31,10 +31,12 @@ public class AlipayServiceImpl implements IAlipayService {
     private static final Logger log = LoggerFactory.getLogger(AlipayServiceImpl.class);
     private final OrdersMapper ordersMapper;
     private final FlowMapper flowMapper;
+    private final DefaultAlipayClient client;
 
-    public AlipayServiceImpl(OrdersMapper ordersMapper, FlowMapper flowMapper) {
+    public AlipayServiceImpl(OrdersMapper ordersMapper, FlowMapper flowMapper,DefaultAlipayClient defaultAlipayClient) {
         this.ordersMapper = ordersMapper;
         this.flowMapper = flowMapper;
+        this.client = defaultAlipayClient;
     }
     @Override
     public String goAliPay(String orderId) {
@@ -42,13 +44,10 @@ public class AlipayServiceImpl implements IAlipayService {
         Orders orders = ordersMapper.selectById(orderId);
         String paidAmount = orders.getPaidAmount().toString();
         String orderSubject = orders.getOrderSubject();
-        // 发起支付请求
-        DefaultAlipayClient client = new DefaultAlipayClient(AlipayConfig.URL,
-                AlipayConfig.APPID, AlipayConfig.RSA_PRIVATE_KEY, AlipayConfig.FORMAT,
-                AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.SIGN_TYPE);
+        // 调用alipay.trade.page.pay接口 发起支付请求
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
-        request.setReturnUrl(AlipayConfig.RETURN_URL);
-        request.setNotifyUrl(AlipayConfig.NOTIFY_URL);
+        request.setReturnUrl(AlipayProperties.RETURN_URL);
+        request.setNotifyUrl(AlipayProperties.NOTIFY_URL);
         JSONObject bizContent = new JSONObject();
         // 必选四项参数 --其他参数参考官方文档
         bizContent.put("out_trade_no",orderId);
@@ -117,7 +116,7 @@ public class AlipayServiceImpl implements IAlipayService {
         boolean  signVerified = false;
         try {
             // 使用支付宝SDK验签
-            signVerified = AlipaySignature.verifyV1(params, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.CHARSET, AlipayConfig.SIGN_TYPE);
+            signVerified = AlipaySignature.verifyV1(params, AlipayProperties.ALIPAY_PUBLIC_KEY, AlipayProperties.CHARSET, AlipayProperties.SIGN_TYPE);
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }
