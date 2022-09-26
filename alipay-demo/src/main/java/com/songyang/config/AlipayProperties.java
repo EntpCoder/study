@@ -16,7 +16,7 @@ public class AlipayProperties {
     /**
      * 服务器异步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
      */
-    public static final String NOTIFY_URL = "http://songyang.top/aliNotify";
+    public static final String NOTIFY_URL = "http://entpcoder.com/aliNotify";
     /**
      * 页面跳转同步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数， 商户可以自定义同步跳转地址
      */
