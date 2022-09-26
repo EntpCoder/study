@@ -3,6 +3,9 @@ spring:
     url: jdbc:mysql://localhost:3306/alipay
     username: root
     password: root
+  redis:
+    host: 121.40.166.165
+    password: songyang.top@@##$$
 logging:
   level:
     root: info

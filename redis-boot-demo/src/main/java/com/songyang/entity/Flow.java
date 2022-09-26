@@ -22,11 +22,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Flow implements Serializable {
-
     private static final long serialVersionUID = 1L;
-
     private String id;
-
     /**
      * 流水号
      */

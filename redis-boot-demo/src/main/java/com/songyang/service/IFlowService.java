@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * <p>
  * 流水表 服务类
  * </p>
- *
  * @author Yang Song
  * @since 2022-09-23
  */
