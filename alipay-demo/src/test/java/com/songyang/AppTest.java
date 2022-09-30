@@ -1,6 +1,7 @@
 package com.songyang;
 
 
+import com.songyang.common.R;
 import com.songyang.config.AlipayProperties;
 import com.songyang.entity.Orders;
 import com.songyang.mapper.OrdersMapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -79,5 +81,11 @@ public class AppTest
         String s1 = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqdCjBCXKDqcyqLfW9bFMhC95d9pmU4AUPrPx+v++zPlkeS8CGYyV3ZdJEXiySDPkIL4x7G4iL7ycHey36t8s/rlkk+NbMlad0IR2gX6QPo03hZswOBlHSJAIEm6ccTcXfGyJBSyE0HCHnUGaKb1ZA7AY+XPE46lCxzB1crrdg/FLbp93jH2+90jVv4epenIAx1/8oo1qSI5ahmyygJGFzAz709ouidiCJ8du7qwGz8jEIRiCVfA1+YuaiPo2Bgts5jyLtHerqYN2nUPJ+Nuvk9WX3KrLgAmdQHXyu/16mA/zm2mxSnf2v4dIKGZEzMndKyHcv1QQN7K6YXxZPlywMQIDAQAB";
         String s2 = AlipayProperties.ALIPAY_PUBLIC_KEY;
         System.out.println(s1.equals(s2));
+    }
+    @Test
+    public void testR(){
+        List<Orders> list = iOrdersService.list();
+        R r = R.ok().data("orderList",list);
+        System.out.println(r);
     }
 }

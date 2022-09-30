@@ -4,8 +4,11 @@ spring:
     username: root
     password: root
   redis:
-    host: 121.40.166.165
+    host: 43.143.139.24
     password: songyang.top@@##$$
+    jedis:
+      pool:
+        enabled: true
 logging:
   level:
     root: info

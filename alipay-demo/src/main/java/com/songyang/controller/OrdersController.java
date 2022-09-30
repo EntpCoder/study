@@ -5,13 +5,12 @@ import com.songyang.entity.Orders;
 import com.songyang.entity.Product;
 import com.songyang.service.IOrdersService;
 import com.songyang.service.IProductService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -33,5 +32,10 @@ public class OrdersController {
     public R createOrder(String productId,Integer productNum,String userId){
         Orders order = ordersService.createOrder(productId, productNum,userId);
         return R.ok().data("order",order);
+    }
+    @GetMapping("/getOrdersByUser/{id}")
+    public R getOrders(@PathVariable("id") String id){
+        List<Orders> list = ordersService.list();
+        return R.ok().data("userOrder",list);
     }
 }

@@ -18,8 +18,8 @@ public class MyBean {
         this.redisConnectionFactory = redisConnectionFactory;
     }
     @Bean
-    public RedisTemplate<String, Object> functionDomainRedisTemplate() {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    public RedisTemplate<String, ?> functionDomainRedisTemplate() {
+        RedisTemplate<String, ?> redisTemplate = new RedisTemplate<>();
         initDomainRedisTemplate(redisTemplate, redisConnectionFactory);
         return redisTemplate;
     }
@@ -29,7 +29,7 @@ public class MyBean {
      * @param redisTemplate RedisTemplate
      * @param factory RedisConnectionFactory
      */
-    private void initDomainRedisTemplate(RedisTemplate<String, Object> redisTemplate, RedisConnectionFactory factory) {
+    private void initDomainRedisTemplate(RedisTemplate<String, ?> redisTemplate, RedisConnectionFactory factory) {
         // 序列化策略
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());

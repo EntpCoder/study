@@ -16,5 +16,9 @@ spring:
 logging:
   level:
     root: info
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
 #  file:
 #    name: C:\Users\Mr.Song\Desktop\a.txt

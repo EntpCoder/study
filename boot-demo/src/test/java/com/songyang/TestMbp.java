@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Yang Song
@@ -20,5 +21,16 @@ public class TestMbp {
     public void testSelect(){
         List<Emp> list = iEmpService.list();
         list.forEach(System.out::println);
+    }
+    @Test
+    public void testInsert(){
+        Emp emp = new Emp();
+        emp.setEname("测试id");
+        iEmpService.save(emp);
+        System.out.println(emp.getEmpno().length());
+    }
+    @Test
+    public void testUUID(){
+        System.out.println(UUID.randomUUID().toString().replaceAll("-","").length());
     }
 }
