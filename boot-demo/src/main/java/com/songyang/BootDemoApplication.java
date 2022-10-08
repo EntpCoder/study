@@ -8,13 +8,14 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Hello world!
  *
+ * @author Yang Song
  */
 @SpringBootApplication
-public class App 
+public class BootDemoApplication
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(App.class,args);
+        SpringApplication.run(BootDemoApplication.class,args);
     }
     @Bean
     public RestTemplate test(){
