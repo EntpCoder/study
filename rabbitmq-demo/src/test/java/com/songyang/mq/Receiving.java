@@ -24,7 +24,7 @@ public class Receiving {
         // 4.创建管道
         Connection connection = factory.newConnection();
         Channel channel =connection.createChannel();
-        //1.队列名字 2.是否定义成持久化队列 3.是否独立占用本连接 4.是否在不使用队列时，自动删除，5.其他参数
+        // 1.队列名字 2.是否定义成持久化队列 3.是否独立占用本连接 4.是否在不使用队列时，自动删除，5.其他参数
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
         // 5.消费消息
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {

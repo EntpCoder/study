@@ -37,6 +37,5 @@ public class Send {
         } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
-
     }
 }
