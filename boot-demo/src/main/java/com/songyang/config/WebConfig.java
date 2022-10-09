@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Yang Song
  * @date 2022/9/22 14:23
  */
-@EnableWebMvc
-@Configuration
+//@EnableWebMvc
+//@Configuration
 public class WebConfig implements WebMvcConfigurer {
     private final LoginInterceptors loginInterceptors;
     public WebConfig(LoginInterceptors loginInterceptors){

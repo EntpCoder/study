@@ -19,7 +19,6 @@ import java.util.List;
  * @since 2022-09-22
  */
 @Controller
-@RequestMapping("/emp")
 public class EmpController {
     private final IEmpService empService;
     private EmpController(IEmpService empService){
@@ -30,10 +29,10 @@ public class EmpController {
     public List<Emp> testAll(){
         return empService.list();
     }
-    @GetMapping("/index")
+    @GetMapping("/")
     @ResponseBody
     public String index(){
         System.out.println("假设我是首页");
-        return "index";
+        return "index测试 --宋洋";
     }
 }
