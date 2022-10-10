@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>alipay-demo</name>
-  <url>http://songyang.top</url>
+  <url>https://songyang.top</url>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
