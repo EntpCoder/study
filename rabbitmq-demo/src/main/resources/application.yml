@@ -5,4 +5,4 @@ spring:
     username: entpcoder
     password: songyang.top
   profiles:
-    active: tut1
+    active: tut4
