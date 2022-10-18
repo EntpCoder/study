@@ -15,7 +15,7 @@ public interface IAlipayService {
      * @param orderId 待支付订单id
      * @return 页面
      */
-    public String goAliPay(String orderId);
+     String goAliPay(String orderId);
 
     /**
      * 交易成功 异步回调
@@ -23,18 +23,18 @@ public interface IAlipayService {
      * @param params 验签参数
      * @return 返回给支付宝是否成功(success/failure)
      */
-    public String callBackAsync(AlipayVo alipayVo, Map<String,String[]> params);
+    String callBackAsync(AlipayVo alipayVo, Map<String,String[]> params);
 
     /**
      * 用户付款成功 同步回调
      * @param alipayVo 回调参数
      * @return 支付信息
      */
-    public PayResultVo callBackSync(AlipayVo alipayVo);
+    PayResultVo callBackSync(AlipayVo alipayVo);
     /**
      * 验签
      * @param requestParams 请求体参数
      * @return 验签是否成功
      */
-    public boolean isSign(Map<String, String[]> requestParams);
+    boolean isSign(Map<String, String[]> requestParams);
 }
