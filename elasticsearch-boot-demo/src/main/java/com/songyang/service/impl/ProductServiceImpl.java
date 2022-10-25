@@ -56,6 +56,7 @@ public class ProductServiceImpl implements IProductService {
                 hits) {
             // 命中的数据对象
             Product product= hit.getContent();
+            // 获取商品名称(高亮效果的proName)
             String proName = hit.getHighlightField("proName").get(0);
             // 将商品名称替换为高亮
             product.setProName(proName);
