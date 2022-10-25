@@ -19,6 +19,13 @@ public class ProductController {
     public ProductController(IProductService productService) {
         this.productService = productService;
     }
+
+    /**
+     *
+     * @param productName 商品名称
+     * @param pageNum 页码
+     * @return 统一结果集
+     */
     @GetMapping("/getProductByName/{productName}/{pageNum}")
     public R<List<Product>> getProductByName(@PathVariable("productName") String productName,
                                              @PathVariable("pageNum") Integer pageNum){

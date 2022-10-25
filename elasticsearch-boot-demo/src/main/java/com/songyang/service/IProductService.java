@@ -1,7 +1,6 @@
 package com.songyang.service;
 
 import com.songyang.entity.Product;
-import com.songyang.result.R;
 
 import java.util.List;
 
