@@ -1,0 +1,23 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: seata-business
+  cloud:
+    nacos:
+      server-addr: 43.143.139.24:8848
+      username: nacos
+      password: songyang.top@@##$$
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 43.143.139.24:8848
+      username: nacos
+      password: songyang.top@@##$$
+      group: DEV_GROUP
+  tx-service-group: order-group
+  service:
+    vgroup-mapping:
+      order-group: default

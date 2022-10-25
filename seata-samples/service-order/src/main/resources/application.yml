@@ -1,0 +1,31 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: seata-order
+  cloud:
+    nacos:
+      server-addr: 43.143.139.24:8848
+      username: nacos
+      password: songyang.top@@##$$
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.143.139.24:3306/shop
+    username: root
+    password: songyang.top@@##$$
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 43.143.139.24:8848
+      username: nacos
+      password: songyang.top@@##$$
+      group: DEV_GROUP
+  tx-service-group: order-group
+  service:
+    vgroup-mapping:
+      order-group: default

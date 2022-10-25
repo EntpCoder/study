@@ -16,9 +16,9 @@ import java.util.Collections;
 public class mbpGenerator {
     @Test
     public void generator(){
-        FastAutoGenerator.create("jdbc:mysql://192.168.186.174:3306/eshop", "root", "root")
+        FastAutoGenerator.create("jdbc:mysql://43.143.139.24:3306/shop", "root", "songyang.top@@##$$")
                 .globalConfig(builder -> {
-                    builder.author("") // 设置作者
+                    builder.author("Yang Song") // 设置作者
                             .outputDir("C:\\Users\\Mr.Song\\Desktop\\1"); // 指定输出目录
                 })
                 .packageConfig(builder -> {
@@ -27,7 +27,7 @@ public class mbpGenerator {
                             .pathInfo(Collections.singletonMap(OutputFile.xml, "C:\\Users\\Mr.Song\\Desktop\\1")); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("myorder,product,customer"); // 设置需要生成的表名
+                    builder.addInclude("account,order,storage"); // 设置需要生成的表名
                 })
                 .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
